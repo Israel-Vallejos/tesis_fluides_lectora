@@ -1,0 +1,344 @@
+/* Acceso profesional: tarjeta blanca, panel azul y cambio de formulario. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #253046;
+  background: #f5f6f8;
+}
+
+button, input {
+  font: inherit;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 3px solid #628dff;
+  outline-offset: 4px;
+}
+
+.pagina-acceso {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  opacity: 1;
+  transition: opacity 180ms;
+}
+
+.saliendo {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contenedor-acceso {
+  position: relative;
+  width: 920px;
+  max-width: 100%;
+  min-height: 640px;
+}
+
+.panel-bienvenida {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  background: #0647d4;
+  border-radius: 9px;
+  box-shadow: 0 12px 35px #182b4d25;
+  transition: transform 650ms ease-in-out;
+}
+
+.contenido-bienvenida {
+  position: relative;
+}
+
+.texto-pequeno {
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #d8e5ff;
+}
+
+.panel-bienvenida h2 {
+  margin: 0 0 16px;
+  font-size: 29px;
+  font-weight: 650;
+}
+
+.panel-bienvenida p:not(.texto-pequeno) {
+  margin: 0 0 30px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #eef4ff;
+}
+
+/* Dos círculos hechos con div; no necesitan dibujos SVG. */
+.circulo {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.circulo-superior {
+  top: -240px;
+  right: -100px;
+  background: #175def;
+}
+
+.circulo-inferior {
+  bottom: -230px;
+  left: -140px;
+  background: #003bab;
+}
+
+.boton-panel {
+  min-height: 47px;
+  padding: 12px 28px;
+  color: white;
+  background: #ffffff12;
+  border: 1px solid #cbdcff;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  transition: background 180ms;
+}
+
+.boton-panel:hover {
+  background: #ffffff24;
+}
+
+.tarjeta-formulario {
+  position: relative;
+  z-index: 1;
+  width: 50%;
+  min-height: 540px;
+  margin-top: 50px;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 9px 30px #15203926;
+  transition: transform 650ms ease-in-out;
+}
+
+/* La tarjeta blanca va a la derecha y el panel azul va a la izquierda. */
+.modo-registro .tarjeta-formulario {
+  transform: translateX(100%);
+}
+
+.modo-registro .panel-bienvenida {
+  transform: translateX(-100%);
+}
+
+.tarjeta-formulario h1 {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -.6px;
+}
+
+.descripcion-formulario {
+  margin: 0 0 27px;
+  color: #657082;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.campo {
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  height: 46px;
+  padding: 0 15px;
+  border: 1px solid #e1e7ee;
+  border-left: 3px solid #1955d7;
+  border-radius: 5px;
+  color: #253046;
+  background: white;
+  font-size: 13px;
+  box-shadow: 0 3px 10px #2948560d;
+  transition: border-color 180ms, box-shadow 180ms;
+}
+
+.campo input::placeholder {
+  color: #657082;
+}
+
+.campo input:focus {
+  border-color: #4c79df;
+  box-shadow: 0 0 0 3px #1955d70d;
+}
+
+.campo input.invalido {
+  border-color: #af3440;
+}
+
+.error-campo {
+  min-height: 17px;
+  margin: 5px 0 0;
+  color: #a3313c;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.fila-campos {
+  display: flex;
+  gap: 14px;
+}
+
+.fila-campos .campo {
+  width: 50%;
+}
+
+.recordarme {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 0 0 12px;
+  color: #657082;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.recordarme input {
+  width: 16px;
+  height: 16px;
+  accent-color: #0647d4;
+}
+
+.boton-principal {
+  display: block;
+  min-height: 46px;
+  padding: 12px 23px;
+  margin: 10px auto 0;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  background: #0647d4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  box-shadow: 0 4px 8px #0647d41a;
+  transition: background 180ms, transform 180ms;
+}
+
+.boton-principal:hover {
+  background: #033da9;
+  transform: translateY(-1px);
+}
+
+.mensaje-formulario {
+  margin: 0;
+  color: #2d485d;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.mensaje-formulario:not(:empty) {
+  padding: 11px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #d5e0ef;
+  border-radius: 5px;
+  background: #f5f8ff;
+}
+
+.mensaje-formulario.error {
+  color: #942b36;
+  background: #fff7f7;
+  border-color: #ebc6cb;
+}
+
+.mensaje-formulario.correcto {
+  color: #215332;
+  background: #f3faf5;
+  border-color: #c1dcc9;
+}
+
+.separador {
+  height: 1px;
+  background: #e9edf3;
+  margin: 28px 0 14px;
+}
+
+.enlace-ninos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  color: #2353af;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.enlace-ninos:hover {
+  text-decoration: underline;
+}
+
+form {
+  animation: aparecer 350ms ease-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .pagina-acceso { padding: 24px 16px; }
+  .contenedor-acceso { width: 440px; min-height: 0; display: flex; flex-direction: column; gap: 16px; }
+  .panel-bienvenida { position: relative; width: 100%; min-height: 200px; padding: 27px 24px; }
+  .tarjeta-formulario { width: 100%; min-height: 0; margin: 0; padding: 28px; }
+  .panel-bienvenida, .tarjeta-formulario { transition: none; }
+  .modo-registro .panel-bienvenida, .modo-registro .tarjeta-formulario { transform: none; }
+  .panel-bienvenida h2 { font-size: 24px; }
+  .panel-bienvenida p:not(.texto-pequeno) { margin-bottom: 18px; font-size: 13px; }
+  .texto-pequeno { margin-bottom: 10px; font-size: 12px; }
+  .campo input { font-size: 16px; }
+}
+
+@media (max-width: 360px) {
+  .tarjeta-formulario { padding: 24px 20px; }
+  .fila-campos { display: block; }
+  .fila-campos .campo { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

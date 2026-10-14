@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi rincón de lectura · Fluidez</title>
+  <link rel="stylesheet" href="../PUBLIC/CSS/login_nino.css">
+  <script src="js/login_nino.js" defer></script>
+</head>
+<body class="pagina-infantil">
+  <main class="contenedor-infantil">
+    <!-- El fondo y las nubes son div con estilos. La ilustración es una imagen. -->
+    <div class="fondo-infantil" aria-hidden="true"></div>
+    <div class="nube nube-izquierda" aria-hidden="true"></div>
+    <div class="nube nube-derecha" aria-hidden="true"></div>
+
+    <div class="tarjeta-infantil">
+      <p class="texto-superior">MI RINCÓN DE LECTURA</p>
+      <h1>¡Hola, lector!</h1>
+      <p class="introduccion">Tu próxima aventura empieza aquí.</p>
+      <form id="formularioNino" novalidate>
+        <div class="campo-infantil">
+          <label for="usuario">Tu usuario</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Escribe tu usuario" autocomplete="username" maxlength="60" aria-describedby="errorUsuario" required>
+          <p class="error-campo" id="errorUsuario"></p>
+        </div>
+        <!-- fieldset y legend agrupan las seis casillas bajo una misma etiqueta. -->
+        <fieldset class="grupo-pin" id="grupoPin" aria-describedby="errorPin">
+          <legend>Tu PIN de 6 números</legend>
+          <div class="casillas-pin">
+            <input class="casilla-pin" id="digito1" type="text" inputmode="numeric" maxlength="6" autocomplete="current-password" aria-label="Número 1 de 6 del PIN" aria-describedby="errorPin" required>
+            <input class="casilla-pin" id="digito2" type="text" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="Número 2 de 6 del PIN" aria-describedby="errorPin" required>
+            <input class="casilla-pin" id="digito3" type="text" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="Número 3 de 6 del PIN" aria-describedby="errorPin" required>
+            <input class="casilla-pin" id="digito4" type="text" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="Número 4 de 6 del PIN" aria-describedby="errorPin" required>
+            <input class="casilla-pin" id="digito5" type="text" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="Número 5 de 6 del PIN" aria-describedby="errorPin" required>
+            <input class="casilla-pin" id="digito6" type="text" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="Número 6 de 6 del PIN" aria-describedby="errorPin" required>
+          </div>
+          <input type="hidden" id="pin" name="pin">
+          <p class="error-campo" id="errorPin"></p>
+        </fieldset>
+        <p class="mensaje-infantil" id="mensajeNino" role="status" aria-live="polite"></p>
+        <button type="submit" class="boton-infantil">¡Vamos a leer!</button>
+        <p class="datos-prueba">Para probar: <strong>lucia</strong> · PIN <strong>123456</strong></p>
+      </form>
+      <button type="button" class="boton-ayuda" id="botonAyuda" aria-expanded="false" aria-controls="ayudaNino">¿Me ayudas a entrar?</button>
+      <p class="mensaje-ayuda" id="ayudaNino" hidden>Pide a tu profesional o a un adulto que te ayude con tu usuario y tus 6 números.</p>
+      <div class="separador"></div>
+      <a class="volver-profesional" id="volverProfesional" href="login.html">Soy profesional</a>
+    </div>
+
+    <div class="aventura-lectora">
+      <p class="frase-apoyo">CADA INTENTO CUENTA</p>
+      <h2>Un libro.<br> Mil aventuras.</h2>
+      <p>Sin prisa. A tu ritmo. Con ayuda.</p>
+      <img class="ilustracion" src="../PUBLIC/img/lectora-aventura.png" alt="Una niña sonriente lee un libro mientras viaja sobre un lápiz gigante." width="1536" height="1024">
+    </div>
+  </main>
+</body>
+</html>

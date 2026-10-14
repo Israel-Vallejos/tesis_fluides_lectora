@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta · Fluidez</title>
+  <link rel="stylesheet" href="../PUBLIC/CSS/login.css">
+  <script src="js/login.js" defer></script>
+</head>
+<body class="pagina-acceso">
+  <main class="contenedor-acceso modo-registro" id="contenedorAcceso">
+    <!-- El panel azul cambia de lado con una transición de CSS. -->
+    <div class="panel-bienvenida">
+      <div class="circulo circulo-superior" aria-hidden="true"></div>
+      <div class="circulo circulo-inferior" aria-hidden="true"></div>
+      <div class="contenido-bienvenida">
+        <p class="texto-pequeno">CADA LECTURA CUENTA</p>
+        <h2 id="tituloBienvenida">¡Bienvenido!</h2>
+        <p id="descripcionBienvenida">Un espacio para acompañar<br>cada pequeño avance.</p>
+        <button type="button" class="boton-panel" id="botonCambiarFormulario">REGISTRARSE</button>
+      </div>
+    </div>
+
+    <div class="tarjeta-formulario" id="tarjetaAcceso">
+      <form id="formularioIngreso" novalidate hidden>
+        <h1 id="tituloIngreso" tabindex="-1">Inicio de sesión</h1>
+        <p class="descripcion-formulario">Accede a tu espacio profesional.</p>
+
+        <div class="campo">
+          <label for="correoIngreso">Correo electrónico</label>
+          <input type="email" id="correoIngreso" name="correo" placeholder="nombre@correo.com" autocomplete="username" aria-describedby="errorCorreoIngreso" required>
+          <p class="error-campo" id="errorCorreoIngreso"></p>
+        </div>
+        <div class="campo">
+          <label for="contrasenaIngreso">Contraseña</label>
+          <input type="password" id="contrasenaIngreso" name="contrasena" placeholder="Ingresa tu contraseña" autocomplete="current-password" aria-describedby="errorContrasenaIngreso" required>
+          <p class="error-campo" id="errorContrasenaIngreso"></p>
+        </div>
+        <label class="recordarme"><input type="checkbox" id="recordarme" name="recordarme"> Recordarme</label>
+        <p class="mensaje-formulario" id="mensajeIngreso" role="status" aria-live="polite"></p>
+        <button type="submit" class="boton-principal">INICIAR SESIÓN</button>
+        <div class="separador"></div>
+        <a class="enlace-ninos" id="irNinos" href="login_nino.html">Soy un niño · Ir a mis lecturas</a>
+      </form>
+
+      <!-- hidden oculta el formulario que no se está usando. -->
+      <form id="formularioRegistro" novalidate>
+        <h1 id="tituloRegistro" tabindex="-1">Crear cuenta</h1>
+        <p class="descripcion-formulario">Comienza a acompañar cada lectura.</p>
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="nombreRegistro">Nombre</label>
+            <input type="text" id="nombreRegistro" name="nombre" placeholder="Tu nombre" autocomplete="given-name" maxlength="60" aria-describedby="errorNombreRegistro" required>
+            <p class="error-campo" id="errorNombreRegistro"></p>
+          </div>
+          <div class="campo">
+            <label for="apellidoRegistro">Apellido</label>
+            <input type="text" id="apellidoRegistro" name="apellido" placeholder="Tu apellido" autocomplete="family-name" maxlength="60" aria-describedby="errorApellidoRegistro" required>
+            <p class="error-campo" id="errorApellidoRegistro"></p>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="correoRegistro">Correo electrónico</label>
+          <input type="email" id="correoRegistro" name="correo" placeholder="nombre@correo.com" autocomplete="email" aria-describedby="errorCorreoRegistro" required>
+          <p class="error-campo" id="errorCorreoRegistro"></p>
+        </div>
+        <div class="campo">
+          <label for="contrasenaRegistro">Contraseña</label>
+          <input type="password" id="contrasenaRegistro" name="contrasena" placeholder="Al menos 8 caracteres" autocomplete="new-password" minlength="8" aria-describedby="errorContrasenaRegistro" required>
+          <p class="error-campo" id="errorContrasenaRegistro"></p>
+        </div>
+        <div class="campo">
+          <label for="confirmarContrasena">Confirmar contraseña</label>
+          <input type="password" id="confirmarContrasena" name="confirmacion" placeholder="Repite tu contraseña" autocomplete="new-password" aria-describedby="errorConfirmarContrasena" required>
+          <p class="error-campo" id="errorConfirmarContrasena"></p>
+        </div>
+        <p class="mensaje-formulario" id="mensajeRegistro" role="status" aria-live="polite"></p>
+        <button type="submit" class="boton-principal">CREAR CUENTA</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
